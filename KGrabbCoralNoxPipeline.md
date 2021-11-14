@@ -16,30 +16,30 @@ This document is the accompanying methods for a paper currently in progress.
 ## Outline
 
 1. [Download sequences](#1-Download-sequences) 
-   1. [Download coral protein sequences](#1.i-Download-coral-protein-sequences)
-   2. [Download NOX reference sequences](#1.ii-Download-NOX-reference-sequences)
-   3. [Download transcriptomic sequences and translate to proteins](#1.iii-Download-transcriptomic-sequences-and-translate-to-proteins)
-2. [Query annotated coral sequences](#2.-Query-annotated-coral-sequences)
-   1. [Query annotated sequences for NOX proteins](#2.i-Query-annotated-sequences-for-NOX-proteins)
-3. [Identify NOX-like coral protein sequences in unannotated sequences](#3.-Identify-NOX-like-Coral-protein-sequences-in-unannotated-sequences)
-   1. [Create protein family (pfam) profiles using hidden markov models (hmm)  for each NOX-type ](#3.i-Create-protein-family-(pfam)-profiles -using-hidden-markov-models-(hmm)-for-each-NOX-type )
-   2. [Query unannotated coral protein sequences using hmmSearch](#3.ii-Query-unannotated-coral-protein-sequences-using-hmmSearch)
-   3. [Identify NOX-like coral sequences](#3.iii-Identify-NOX-like-coral-sequences)
-   4. [Verify identified NOX-like sequences against *nr* database](#3.iv Verify-identified-NOX-like-sequences-against-*nr*-database) 
-5. [NOX Domain Analysis](#4.-NOX-Domain-Analysis)
-   1. [Download NOX-human domains from online pfam database](#4.i-Download-NOX-human-domains-from-online-pfam-database)
-   2. [Identify specific domains in NOX-like sequences](#4.ii-Identify-specific-domains-in-NOX-like-sequences)
-6. [Create a phylogenetic tree](#5.1-Create-a-phylogenetic-tree)
-   1. [Align all coral NOX-like sequences](#5.i-Align-all-coral-NOX-like-sequences)
-   2. [Create a tree file](#5.ii-Create-a-tree-file)
-   3. [Overall bash script to execute for creating a tree](#5.iii-Overall-bash-script-to-execute-for-creating-a-tree)
-   4. [Visualize tree using iTol Software](#5.iv-Visualize-tree-using-iTol-Software)
+   1. [Download coral protein sequences](#1i-Download-coral-protein-sequences)
+   2. [Download NOX reference sequences](#1ii-Download-NOX-reference-sequences)
+   3. [Download transcriptomic sequences and translate to proteins](#1iii-Download-transcriptomic-sequences-and-translate-to-proteins)
+2. [Query annotated coral sequences](#2-Query-annotated-coral-sequences)
+   1. [Query annotated sequences for NOX proteins](#2i-Query-annotated-sequences-for-NOX-proteins)
+3. [Identify NOX-like coral protein sequences in unannotated sequences](#3-Identify-NOX-like-Coral-protein-sequences-in-unannotated-sequences)
+   1. [Create protein family (pfam) profiles using hidden markov models (hmm)  for each NOX-type ](#3i-Create-protein-family-(pfam)-profiles -using-hidden-markov-models-(hmm)-for-each-NOX-type )
+   2. [Query unannotated coral protein sequences using hmmSearch](#3ii-Query-unannotated-coral-protein-sequences-using-hmmSearch)
+   3. [Identify NOX-like coral sequences](#3iii-Identify-NOX-like-coral-sequences)
+   4. [Verify identified NOX-like sequences against *nr* database](#3iv Verify-identified-NOX-like-sequences-against-*nr*-database) 
+5. [NOX Domain Analysis](#4-NOX-Domain-Analysis)
+   1. [Download NOX-human domains from online pfam database](#4i-Download-NOX-human-domains-from-online-pfam-database)
+   2. [Identify specific domains in NOX-like sequences](#4ii-Identify-specific-domains-in-NOX-like-sequences)
+6. [Create a phylogenetic tree](#51-Create-a-phylogenetic-tree)
+   1. [Align all coral NOX-like sequences](#5i-Align-all-coral-NOX-like-sequences)
+   2. [Create a tree file](#5ii-Create-a-tree-file)
+   3. [Overall bash script to execute for creating a tree](#5iii-Overall-bash-script-to-execute-for-creating-a-tree)
+   4. [Visualize tree using iTol Software](#5iv-Visualize-tree-using-iTol-Software)
 
-##
+
 
 ## 1. Download sequences 
 
-# 1.i Download coral protein sequences
+#### 1.i Download coral protein sequences
 
 Coral protein sequences were obtained online from published papers and `reefgenomics.org`. Majority of coral sequences were unannotated, however, a few were annotated.
 
@@ -55,7 +55,7 @@ All unannotated coral sequences were stored in a file that we called `coralSeqDa
 
 
 
-# 1.ii Download NOX reference sequences
+#### 1.ii Download NOX reference sequences
 
 NOX reference sequences were downloaded from previously published NOX references in two papers:
 
