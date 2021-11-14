@@ -17,7 +17,7 @@ This document is the accompanying methods for a paper currently in progress.
 
 1. [Download sequences](#1-Download-sequences) 
    
-   1. [Download coral protein sequences](#1.i-Download-coral-protein-sequences)
+   1. [Download coral protein sequences](#Section-1.i)
    2. [Download NOX reference sequences](#1.ii-Download-NOX-reference-sequences)
    3. [Download transcriptomic sequences and translate to proteins](#1.iii-Download-transcriptomic-sequences-and-translate-to-proteins)
 2. [Query annotated coral sequences](#2.-Query-annotated-coral-sequences)
@@ -51,7 +51,11 @@ This document is the accompanying methods for a paper currently in progress.
 
 ## 1. Download sequences
 
-#### 1.i Download coral protein sequences
+```
+<a name="Section-1.i"></a> 1.i Download coral protein sequences
+```
+
+
 
 Coral protein sequences were obtained online from published papers and `reefgenomics.org`. Majority of coral sequences were unannotated, however, a few were annotated.
 
