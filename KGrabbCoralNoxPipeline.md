@@ -22,10 +22,10 @@ This document is the accompanying methods for a paper currently in progress.
 2. [Query annotated coral sequences](#2-Query-annotated-coral-sequences)
    1. [Query annotated sequences for NOX proteins](#2i-Query-annotated-sequences-for-NOX-proteins)
 3. [Identify NOX-like coral protein sequences in unannotated sequences](#3-Identify-NOX-like-Coral-protein-sequences-in-unannotated-sequences)
-   1. [Create protein family (pfam) profiles using hidden markov models (hmm)  for each NOX-type ](#3i-Create-protein-family-(pfam)-profiles -using-hidden-markov-models-(hmm)-for-each-NOX-type )
+   1. [Create protein family (pfam) profiles using hidden markov models (hmm)  for each NOX-type ](#3i-Create-protein-family-(pfam)-profiles-using-hidden-markov-models-(hmm)-for-each-NOX-type )
    2. [Query unannotated coral protein sequences using hmmSearch](#3ii-Query-unannotated-coral-protein-sequences-using-hmmSearch)
    3. [Identify NOX-like coral sequences](#3iii-Identify-NOX-like-coral-sequences)
-   4. [Verify identified NOX-like sequences against *nr* database](#3iv Verify-identified-NOX-like-sequences-against-*nr*-database) 
+   4. [Verify identified NOX-like sequences against *nr* database](#3iv-Verify-identified-NOX-like-sequences-against-*nr*-database) 
 5. [NOX Domain Analysis](#4-NOX-Domain-Analysis)
    1. [Download NOX-human domains from online pfam database](#4i-Download-NOX-human-domains-from-online-pfam-database)
    2. [Identify specific domains in NOX-like sequences](#4ii-Identify-specific-domains-in-NOX-like-sequences)
@@ -212,7 +212,7 @@ wget http://pfam.xfam.org/family/PF08030/alignment/seed/gzipped
 
 #### 4.ii Identify specific domains in NOX-like sequences
 
-Specific domains in coral NOX-like sequences were identified using the `.seed` files and `hmmSearch`, similar to that described in [Section 3.i][#3.i-Create-protein-family-(pfam)-profiles-using-hidden-markov-models-(hmm)-for-each-NOX-type ], [Section 3.ii][#3.ii-Query-unannotated-coral-protein-sequences-using-hmmSearch], and [Section 3.iii][3.iii-Identify-NOX-like-coral-sequences]. The only exception to the pipeline described in Sections 3.i - 3.iii is in the creation of the HMM profile. Since a `.seed` file was downloaded for the known NOX domains, the following script was used in `bash` to create a HMM profile:
+Specific domains in coral NOX-like sequences were identified using the `.seed` files and `hmmSearch`, similar to that described in [Section 3.i][#3i-Create-protein-family-(pfam)-profiles-using-hidden-markov-models-(hmm)-for-each-NOX-type ], [Section 3.ii][#3ii-Query-unannotated-coral-protein-sequences-using-hmmSearch], and [Section 3.iii][3iii-Identify-NOX-like-coral-sequences]. The only exception to the pipeline described in Sections 3.i - 3.iii is in the creation of the HMM profile. Since a `.seed` file was downloaded for the known NOX domains, the following script was used in `bash` to create a HMM profile:
 
 ```bash
 hmmbuild PF08030.hmm PF08030.seed
@@ -229,7 +229,7 @@ hmmpress PF08030.hmm
 
 #### 5.i Align all coral NOX-like sequences
 
-In order to create a phylogenetic tree, the output FASTA file from [Section 3.iii](#3.3-Identify-NOX-like-coral-sequences) `coralNOX1Sequences.fas` can be used. In the case where we want to create a tree for all of the coral NOX-like sequences, all of the sequences can be analyzed through the pipeline described in [Section 3](#3.-Identify-NOX-like-coral-protein-sequences-in-unannotated-sequences), or the output FASTA files from section 3.3 can be combined using the `cat` command:
+In order to create a phylogenetic tree, the output FASTA file from [Section 3.iii](#33-Identify-NOX-like-coral-sequences) `coralNOX1Sequences.fas` can be used. In the case where we want to create a tree for all of the coral NOX-like sequences, all of the sequences can be analyzed through the pipeline described in [Section 3](#3-Identify-NOX-like-coral-protein-sequences-in-unannotated-sequences), or the output FASTA files from [Section 3.iii](#33-Identify-NOX-like-coral-sequences) can be combined using the `cat` command:
 
 ```bash
 cat coralNOX1Sequences.fas coralNOX2Sequences.fas coralNOX3Sequences.fas coralNOX4Sequences.fas coralNOX5Sequences.fas coralDUOXSequences.fas > coralAllSequences.fas
@@ -288,10 +288,10 @@ Phylo.write(trees, outputFile, 'phyloxml')
 
 As an option to create multiple tree files from different sequences, the following `bash` script can be run to execute the above scripts in one command. The scripts that are being executed within in this script are:
 
-- `biopythonSeqFasta` from [Section 3.iii](# 3.iii-Identify-NOX-like-coral-sequences)
-- `MSAScript` from [Section 5.i](#5.i-Align-all-coral-NOX-like-sequences)
-- `biopythonConvertScript` in [Section 5.ii](#5.ii-Create-a-tree-file)
-- `biopythonCreateTreeScript` in [Section 5.ii](#5.ii-Create-a-tree-file)
+- `biopythonSeqFasta` from [Section 3.iii](# 3iii-Identify-NOX-like-coral-sequences)
+- `MSAScript` from [Section 5.i](#5i-Align-all-coral-NOX-like-sequences)
+- `biopythonConvertScript` in [Section 5.ii](#5ii-Create-a-tree-file)
+- `biopythonCreateTreeScript` in [Section 5.ii](#5ii-Create-a-tree-file)
 
 The script we call `treePipelineScript` and can be executed in `bash` command line in the same folder as all of the other scripts and necessary files. All filenames need to be changed in the script files listed above:
 
