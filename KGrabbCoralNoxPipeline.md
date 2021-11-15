@@ -67,7 +67,7 @@ NOX reference sequences were downloaded from previously published NOX references
 
   [gandara]: https://bmcecolevol.biomedcentral.com/articles/10.1186/s12862-017-0940-0	"Gandara et al., 2017"
 
-
+All NOX reference sequences were stored in a file that we called `noxAllReference.fas` . We also split up each NOX type into respective files to be used to classify by NOX-type (e.g. all NOX1 reference sequence were stored in `nox1Reference.fas`).
 
 #### 1.iii Download transcriptomic sequences and translate to proteins
 
@@ -115,10 +115,10 @@ done
 
 Pfams are publicly available for many proteins from the [Pfam database][pfam]. However, for NOX, the only NOX pfam available was not specific to NOX type. Therefore, we chose to build our own pfams from the more specific NOX reference sequences that we had obtained.
 
-To create a pfam, the first step is to align the reference sequences that are to make up the pfam. This was one by using multiple sequence alignments (MSAs) using MUSCLE v3.8.31. Here, we created a pfam specific to each NOX-type:
+To create a pfam, the first step is to align the reference sequences that are to make up the pfam. This was one by using multiple sequence alignments (MSAs) using MUSCLE v3.8.31. Here, we created a pfam specific to each NOX-type. As an example, we have written out the process for NOX1, using the NOX reference file `nox1Reference.fas` that we created in [Section 1.ii](#1ii-Download-NOX-reference-sequences). This process was then completed for each NOX-type:
 
 ``` bash
-muscle -in nox1reference.fas -out muscleAlignmentNox1.msa
+muscle -in nox1Reference.fas -out muscleAlignmentNox1.msa
 ```
 
 Using the multiple sequence alignments, we then built a hidden markov model (HMM) profile for each NOX-type using the following script:
@@ -154,15 +154,15 @@ To verify the NOX-like sequences, the headers from the hmmSearch were extracted 
 cut -d' ' -f1 coralNOX1hmmSearchResults_10-5.txt | sort -u > coralNox1Headers.txt
 ```
 
-The headers were then matched with their FASTA sequences from our `coralSeqDatabase.fas` using the `SeqIO` package within `biopython` through the following `python` script, which we call `biopythonSeqFasta`:
+The headers were then matched with their FASTA sequences from our `coralSeqDatabase.fas` using the `SeqIO` package within `biopython` through the following `python` script, which we call `biopythonSeqFasta`. The input filed necessary for this script are the `coralSeqDatabase.fas` created in [Section 1.i](#1i-Download-coral-protein-sequences) and [Section 1.iii](#1iii-Download-transcriptomic-sequences-and-translate-to-proteins), and the `coralNox1Headers.txt` file created in this section. The output file will store the coral sequences for the given NOX-type that corresponds with the headers in the `coralNox1Headers.txt` file. In this example, we call our output file`coralNOX1Sequences.fas` :
 
 ``` python
 import Bio
 from Bio import SeqIO
 import pandas as pd
 seqDBFile="coralSeqDatabase.fas"
-outputFile="coralNOX1Sequences.fas"
 coralHeadersFile="coralNox1Headers.txt"
+outputFile="coralNOX1Sequences.fas"
 
 seqs = pd.read_csv(coralHeadersFile)
 
